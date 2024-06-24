@@ -13,6 +13,12 @@ document.addEventListener("DOMContentLoaded", function () {
         })
     }
 
+    document.getElementById("answer-box").addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            checkAnswer();
+        }
+    })
+
     runGame("addition");
 
 })
@@ -23,6 +29,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 //runGame()
 function runGame(gameType) {
+
+    document.getElementById("answer-box").value = ""; //Empties the answer box after pressing submit
+    document.getElementById("answer-box").focus(); //Cursor will be in the box ready to type in the answer
 
     //Creates two random numbers between 1 and 25
     let num1 = Math.floor(Math.random() * 25) + 1;
